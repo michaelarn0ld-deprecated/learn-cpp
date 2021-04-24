@@ -6,17 +6,19 @@ using namespace std;
 
 int sumOfDigits(int n){
     int result = 0;
-    while (n >= 10){
+    while (n > 0){
         result += (n % 10);
         n /= 10;
     }
-    result += n;
     return result;
 }
 
 int main()
 {
-    int printout = sumOfDigits(837);
+    int n;
+    cout << "Enter a number: \n";
+    cin >> n;
+    int printout = sumOfDigits(n);
     cout << printout;
     return 0;
 }
