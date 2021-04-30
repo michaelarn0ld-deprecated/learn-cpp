@@ -8,22 +8,16 @@ int checkBalance(string phrase){
         if (phrase[i] == '{' || phrase[i] == '('){
             s.push(phrase[i]);
         }   
-        if (phrase[i] == '}'){
-            if (s.size() == 0){
-                return i;
-            }
-            if (s.top() == '{'){
+        else if (phrase[i] == '}'){
+            if (!s.empty() && s.top() == '{'){
                 s.pop();
             }
             else{
                 return i;
             }
         }
-         if (phrase[i] == ')'){
-            if (s.size() == 0){
-                return i;
-            }
-            if (s.top() == '('){
+         else if (phrase[i] == ')'){
+            if (!s.empty() && s.top() == '('){
                 s.pop();
             }
             else{
@@ -31,7 +25,7 @@ int checkBalance(string phrase){
             }
         }
     }
-    if (s.size() > 0){
+    if (!s.empty()){
         return phrase.size();
     }
     else{
