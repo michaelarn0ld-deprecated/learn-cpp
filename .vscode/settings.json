@@ -2,6 +2,11 @@
     "files.associations": {
         "string": "cpp",
         "iostream": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "utility": "cpp",
+        "vector": "cpp",
+        "map": "cpp",
+        "iosfwd": "cpp",
+        "set": "cpp"
     }
 }
