@@ -2,24 +2,29 @@
 #include <vector>
 using namespace std;
 
-void permuteHelper(vector<string>& v, vector<string> path){
+void permuteHelper(vector<string>& v, vector<string>& chosen){
     if (v.empty()){
-        for (string s : path){
+        for (string s : chosen){
             cout << s << ' ';
         }
         cout << endl;
     }
     else{
-        for (string item : v){
-            path.push_back(item);
-            vector<string> v2;
-            for (string choice : v){
-                if (choice != item){
-                    v2.push_back(choice);
+        for (string choice : v){
+            // choose
+            chosen.push_back(choice);
+
+            // explore
+            vector<string> remainingMoves;
+            for (string remainingMove : v){
+                if (remainingMove != choice){
+                    remainingMoves.push_back(remainingMove);
                 }
             }
-            permuteHelper(v2,path);
-            path.pop_back();
+            permuteHelper(remainingMoves,chosen);
+
+            // unchoose
+            chosen.pop_back();
         }
     }
 }
@@ -33,4 +38,4 @@ int main(){
     vector<string> s {"a","b","c","d"};
     permuteString(s);
     return 0;
-}
+} 
