@@ -14,8 +14,20 @@ void sublistHelper(vector<string>& v, vector<string>& chosen){
         cout << endl;
     }
     else{
+        cout << "v is: ";
+        for (string s : v){
+        cout << s << ' ';
+        }
+        cout << "  chosen is: ";
+        for (string s : chosen){
+        cout << s << ' ';
+        }
+
         // for all choices
         string s = v[0];
+        cout << "  removal is: " << s;
+        cout << endl;
+
         v.erase(v.begin());
 
         //explore / choose without s
@@ -28,6 +40,8 @@ void sublistHelper(vector<string>& v, vector<string>& chosen){
         // unchoose
         v.insert(v.begin(), s);
         chosen.pop_back();
+
+        cout << endl << endl;
     }
 
 }
